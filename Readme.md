@@ -39,6 +39,13 @@ To get started with Tapp, follow these steps:
 
 3.  In Android Studio, open the project and run it on an emulator or a physical device. 
 
+To Use Docker Shared Dev Environmnets (Beta)
+------------
+
+1. Install Docker Desktop on you local machine
+
+2. Click this Link ` https://open.docker.com/dashboard/dev-envs?url=https://github.com/DanPace725/tapp.git `
+
 Contributing
 ------------
 
