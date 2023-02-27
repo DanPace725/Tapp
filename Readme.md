@@ -35,24 +35,9 @@ To get started with Tapp, follow these steps:
 
 1.  Clone this repository and navigate to the project directory.
     
-2.  Install the dependencies by running the following command:
-    
+2.  Install Flutter and Android Studio, making sure to set up the Dart and FLutter SDKs in Android Studio
 
-
-
-```sh
-npm install
-```
-
-3.  Start the app by running the following command:
-
-
-
-```sh
-npm start
-```
-
-4.  Use the app by adding tasks to your schedule and see the AI algorithm at work.
+3.  In Android Studio, open the project and run it on an emulator or a physical device. 
 
 Contributing
 ------------
