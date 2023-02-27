@@ -31,10 +31,10 @@ class SplashPage extends StatefulWidget {
   final String title;
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  SplashPageState createState() => SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage>
+class SplashPageState extends State<SplashPage>
     with TickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
@@ -73,7 +73,7 @@ class _SplashPageState extends State<SplashPage>
           child: const Text(
             "Tapp",
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.lightBlueAccent,
               fontSize: 50.0,
               fontWeight: FontWeight.bold,
             ),
