@@ -44,7 +44,11 @@ To Use Docker Shared Dev Environmnets (Beta)
 
 1. Install Docker Desktop on you local machine
 
-2. Click this Link ` https://open.docker.com/dashboard/dev-envs?url=https://github.com/DanPace725/tapp.git `
+2. Click this Link ``` https://open.docker.com/dashboard/dev-envs?url=https://github.com/DanPace725/tapp ```
+
+3. Follow the steps to create a shared dev environment. 
+
+4. This should allow you to use VScode or Android Studio to develop and changes will reflect on the github. 
 
 Contributing
 ------------
