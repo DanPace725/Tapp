@@ -44,7 +44,13 @@ To Use Docker Shared Dev Environmnets (Beta)
 
 1. Install Docker Desktop on you local machine
 
-2. Click this Link ` https://open.docker.com/dashboard/dev-envs?url=https://github.com/DanPace725/tapp.git `
+2. Click this Link  (https://open.docker.com/dashboard/dev-envs?url=https://github.com/DanPace725/tapp)
+
+3. Follow the steps to create a shared dev environment. 
+
+4. This should allow you to get everything necessary going on your end to start working with the code. 
+
+Note: Docker Dev Environments is still in Beta and there's not a significant amount of documentation on it yet. You can learn more here: [Link](https://docs.docker.com/desktop/dev-environments/)
 
 Contributing
 ------------
