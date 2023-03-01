@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final List<String> _textList = [];
+
+  final TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+}
 
   @override
   Widget build(BuildContext context) {
@@ -9,25 +24,44 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Welcome to the Home Page!',
-              style: TextStyle(fontSize: 24),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:[
+          const Text(
+            'Welcome to the Home Page!',
+            style: TextStyle(fontSize: 24),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SizedBox(
               width: 250,
               child: TextField(
-                decoration: InputDecoration(
+                controller: _textEditingController,
+                decoration: const InputDecoration(
                   hintText: 'Enter some text',
                 ),
               ),
             ),
-          ],
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _textList.length,
+                itemBuilder: (context,index) {
+                  return ListTile(
+                    title: Text(_textList[index]),
+                );
+              },
+            ),
+          ),
+         ],
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            setState(() {
+              _textList.add(_textEditingController.text);
+              _textEditingController.clear();
+            });
+          },
+          child: const Icon(Icons.add),
       ),
     );
   }
