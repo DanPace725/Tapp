@@ -4,10 +4,10 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   final List<String> _textList = [];
 
   final TextEditingController _textEditingController = TextEditingController();
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   void dispose() {
     _textEditingController.dispose();
     super.dispose();
-}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,42 +26,42 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children:[
+        children: [
           const Text(
             'Welcome to the Home Page!',
             style: TextStyle(fontSize: 24),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: 250,
-              child: TextField(
-                controller: _textEditingController,
-                decoration: const InputDecoration(
-                  hintText: 'Enter some text',
-                ),
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: 250,
+            child: TextField(
+              controller: _textEditingController,
+              decoration: const InputDecoration(
+                hintText: 'Enter some text',
               ),
             ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _textList.length,
-                itemBuilder: (context,index) {
-                  return ListTile(
-                    title: Text(_textList[index]),
+          ),
+          const SizedBox(height: 20),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _textList.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(_textList[index]),
                 );
               },
             ),
           ),
-         ],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              _textList.add(_textEditingController.text);
-              _textEditingController.clear();
-            });
-          },
-          child: const Icon(Icons.add),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _textList.add(_textEditingController.text);
+            _textEditingController.clear();
+          });
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
