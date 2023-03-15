@@ -40,23 +40,33 @@ class HomePageState extends State<HomePage> {
               'Welcome to the Home Page!',
               style: TextStyle(fontSize: 24, color: Colors.white),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 20,
+            ),
             SizedBox(
               width: 250, // Set border radius  of text field
               child: TextField(
-                controller: _textEditingController,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
+                style: const TextStyle(color: Colors.white
+                ),
+                controller: _textEditingController,                
+                decoration: InputDecoration(
                   hintText: 'Enter some text',
-                  hintStyle: TextStyle(color: Colors.white),
+                  hintStyle: const TextStyle(color: Colors.white54
+                  ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    borderSide: BorderSide(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: const BorderSide(
                       width: 2,
                       color: Colors.white,
                     ),
                   ),
                 ),
+                textInputAction: TextInputAction.done,
+                onSubmitted: (value) {
+                  setState(() {
+                    _textList.add(value);
+                    _textEditingController.clear();
+                  });
+                },
               ),
             ),
             const SizedBox(height: 20),
