@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:tapp/models/task.dart';
+final supabase = Supabase.instance.client;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -85,12 +88,23 @@ class HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
+          final value = _textEditingController.text;
+          final response = await supabase.from('task').insert({'description': value});
+          if (response.error != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Error inserting task: ${response.error!.message}'),
+                backgroundColor: Colors.red,
+        ),
+      );
+          } else {       
           setState(() {
-            _textList.add(_textEditingController.text);
+            _textList.add(value);
             _textEditingController.clear();
           });
-        },
+        }
+      },
         child: const Icon(Icons.add),
       ),
     );
