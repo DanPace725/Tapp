@@ -4,7 +4,7 @@ import 'package:tapp/models/task.dart';
 final supabase = Supabase.instance.client;
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   HomePageState createState() => HomePageState();
