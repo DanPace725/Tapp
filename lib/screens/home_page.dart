@@ -90,20 +90,26 @@ class HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final value = _textEditingController.text;
-          final response = await supabase.from('task').insert({'description': value});
-          if (response.error != null) {
-            ScaffoldMessenger.of(context).showSnackBar(
+          try {
+            final response = await supabase.from('task').insert({'description': value});
+            // Insert was successful
+            if (response.error != null) {
+              ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text('Error inserting task: ${response.error!.message}'),
                 backgroundColor: Colors.red,
         ),
       );
-          } else {       
+      } else {       
           setState(() {
             _textList.add(value);
             _textEditingController.clear();
           });
         }
+        } catch (e) {
+            // Insert failed
+          print ('Error: $e');
+          }          
       },
         child: const Icon(Icons.add),
       ),
