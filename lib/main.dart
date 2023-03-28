@@ -15,11 +15,11 @@ void main() async {
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJxZmF4emdva3l5bHl0Y2ZhdXhxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg4NTU2NjQsImV4cCI6MTk5NDQzMTY2NH0.75Tfqd_BwMhvSXWSPLGqSDO4b3oQjnpi5Vo07kXWhQA', // Set your supabase anon key here (optional)
   );
 
-  // Get a reference to your Supabase Client
-  final supabase = Supabase.instance.client;
-
   runApp(TappApp(supabase: supabase));
 }
+
+// Get a reference to your Supabase Client
+final supabase = Supabase.instance.client;
 
 class TappApp extends StatelessWidget {
   final SupabaseClient supabase;

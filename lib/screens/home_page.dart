@@ -91,26 +91,30 @@ class HomePageState extends State<HomePage> {
         onPressed: () async {
           final value = _textEditingController.text;
           try {
-            final response = await supabase.from('task').insert({'description': value});
+            final response =
+                await supabase.from('task_table').insert({'description': value});
             // Insert was successful
-            if (response.error != null) {
+            if (response.noSuchMethod(invocation)) {
               ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Error inserting task: ${response.error!.message}'),
-                backgroundColor: Colors.red,
-        ),
-      );
-      } else {       
-          setState(() {
-            _textList.add(value);
-            _textEditingController.clear();
-          });
-        }
-        } catch (e) {
+                SnackBar(
+                  content:
+                      Text('Error inserting task: ${response.error!.message}'),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            } 
+            else {
+              setState(() {
+                _textList.add(value);
+                _textEditingController.clear();
+              });
+            }
+          } 
+          catch (e) {
             // Insert failed
-          print ('Error: $e');
-          }          
-      },
+            print('Error: $e'); 
+          }
+        },
         child: const Icon(Icons.add),
       ),
     );
